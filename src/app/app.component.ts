@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdvantageType} from "./types/advantage.type";
 import {ProductType} from "./types/product.type";
+import {ProductService} from "./services/product.service";
+import {CartService} from "./services/cart.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   showPresent: boolean = true;
-  phone: string = '+375 (29) 368-98-68';
+  phone: string = '375293689868';
   instagram: string = 'https://www.instagram.com/';
   inputValue: string = '';
+
+  constructor(private productService: ProductService, public cartService: CartService) {
+  }
 
   advantages: AdvantageType[] = [
     {
@@ -32,39 +37,18 @@ export class AppComponent {
     },
   ];
 
-  products: ProductType[] = [
-    {
-      image: 'product1.png',
-      title: 'Макарун с малиной',
-      count: 1,
-      price: '1,70',
-    },
-    {
-      image: 'product2.png',
-      title: 'Макарун с манго',
-      count: 1,
-      price: '1,70',
-    },
-    {
-      image: 'product3.png',
-      title: 'Пирог с ванилью',
-      count: 1,
-      price: '1,70',
-    },
-    {
-      image: 'product4.png',
-      title: 'Пирог с фисташками',
-      count: 1,
-      price: '1,70',
-    },
-  ];
+  products: ProductType[] = [];
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+  }
 
   scrollTo(target: HTMLElement) {
     target.scrollIntoView({behavior: 'smooth'});
   }
 
-  addToCart(title: string, target: HTMLElement) {
-    this.scrollTo(target);
-    this.inputValue = title.toUpperCase();
+  addToCart(title: string) {
+
+    alert(title + " добавлен в корзину!")
   }
 }

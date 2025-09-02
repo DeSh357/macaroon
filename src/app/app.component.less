@@ -1,27 +1,6 @@
-.buttons-bg() {
-  background: linear-gradient(90deg, #71041b 0%, #d5394f 100%);
-}
-
 .container-flex() {
   display: flex;
   align-items: center;
-}
-
-.button {
-  .buttons-bg;
-  border: none;
-  font-size: 18px;
-  font-family: GillroyBold, sans-serif;
-  color: @white;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: box-shadow .2s;
-  position: relative;
-  z-index: 2;
-
-  &:hover {
-    box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
-  }
 }
 
 .main {
@@ -191,56 +170,6 @@
     grid-template-columns: repeat(4, minmax(180px, 220px));
     row-gap: 86px;
     justify-content: space-between;
-
-    .advantage-item {
-      max-width: 220px;
-
-      .item-number {
-        height: 70px;
-        width: 70px;
-        background-color: @item-color;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        margin-bottom: 13px;
-        transition: all .4s;
-
-        span {
-          font-size: 60px;
-          font-family: GillroyExtraBold, sans-serif;
-          color: @white;
-          line-height: 1;
-          position: relative;
-          top: 20px;
-          transition: all .4s;
-        }
-      }
-
-      .item-title {
-        font-size: 20px;
-        font-family: GillroyExtraBold, sans-serif;
-        color: @second-text;
-        margin-bottom: 20px;
-      }
-
-      .item-text {
-        font-size: 15px;
-        font-family: GilroyMedium, sans-serif;
-        color: @second-text;
-        max-width: 212px;
-      }
-
-      &:hover {
-        .item-number {
-          background-color: #e46a84;
-
-          span {
-            color: @item-color;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -264,71 +193,6 @@
     align-items: center;
     justify-content: center;
     gap: 144px 29px;
-
-    .product-item {
-      width: 262px;
-      border: 2px solid @white;
-      box-sizing: border-box;
-      border-radius: 20px;
-      position: relative;
-      height: 229px;
-      text-align: center;
-      padding: 0 21px;
-
-      .product-image {
-        width: 221px;
-        height: 125px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        position: absolute;
-        top: -66px;
-
-        img {
-          transition: all .5s;
-        }
-      }
-
-      .product-title {
-        margin-top: 109px;
-        font-size: 18px;
-        font-family: TavolgaFree, sans-serif;
-        color: @white;
-        font-weight: 400;
-        margin-bottom: 26px;
-      }
-
-      .product-actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .product-info {
-          font-size: 15px;
-          font-family: Gilroy, sans-serif;
-          color: @white;
-          text-align: left;
-
-          .product-count {
-            margin-bottom: 9px;
-          }
-        }
-
-        .product-button {
-          width: 130px;
-          height: 50px;
-          font-size: 16px;
-        }
-      }
-
-      &:hover {
-        .product-image {
-          img {
-            transform: scale(1.1);
-          }
-        }
-      }
-    }
   }
 }
 
@@ -495,7 +359,7 @@ input {
 }
 
 
-.present-message {
+.cart-message {
   position: fixed;
   right: 30px;
   bottom: 30px;
@@ -504,12 +368,12 @@ input {
   z-index: 99;
 
   .message {
-    border: @main-text;
+    border: 2px solid @main-text;
     border-radius: 10px;
     background-color: @message-bg;
-    width: 172px;
+    width: 90px;
     position: absolute;
-    left: -190px;
+    left: -110px;
     padding: 10px 12px 10px 11px;
     margin-right: 20px;
     display: flex;
@@ -525,7 +389,7 @@ input {
       font-family: GilroyMedium, sans-serif;
       color: @main-text;
       line-height: 1.333;
-      width: 149px;
+      width: 75px;
     }
 
     .figure {
@@ -538,12 +402,12 @@ input {
       border-right: 2px solid @main-text;
       transform: rotate(45deg);
       box-sizing: border-box;
-      top: 24px;
-      right: -7.5px;
+      top: 13px;
+      right: -9px;
     }
   }
 
-  .present {
+  .cart {
     border-radius: 50%;
     width: 90px;
     height: 90px;
@@ -552,9 +416,26 @@ input {
     align-items: center;
     background: @present;
     transition: .4s;
+    position: relative;
 
     img {
-      max-width: 53px;
+      max-width: 55%;
+      position: relative;
+      right: 3px;
+    }
+
+    .count {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid @main-text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: @message-bg;
+      position: absolute;
+      top: 0;
+      right: 3px;
     }
 
     &:hover {

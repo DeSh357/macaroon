@@ -36,3 +36,26 @@ body {
   max-width: 1138px;
   margin: 0 auto;
 }
+
+.buttons-bg() {
+  background: linear-gradient(90deg, #71041b 0%, #d5394f 100%);
+}
+
+.button {
+  .buttons-bg;
+  border: none;
+  font-size: 18px;
+  font-family: GillroyBold, sans-serif;
+  color: @white;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: box-shadow .2s;
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
+  }
+}
+
+@import "theme";

@@ -1,0 +1,66 @@
+.product-item {
+  width: 262px;
+  border: 2px solid @white;
+  box-sizing: border-box;
+  border-radius: 20px;
+  position: relative;
+  height: 229px;
+  text-align: center;
+  padding: 0 21px;
+
+  .product-image {
+    width: 221px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    top: -66px;
+
+    img {
+      transition: all .5s;
+    }
+  }
+
+  .product-title {
+    margin-top: 109px;
+    font-size: 18px;
+    font-family: TavolgaFree, sans-serif;
+    color: @white;
+    font-weight: 400;
+    margin-bottom: 26px;
+  }
+
+  .product-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .product-info {
+      font-size: 15px;
+      font-family: Gilroy, sans-serif;
+      color: @white;
+      text-align: left;
+
+      .product-count {
+        margin-bottom: 9px;
+      }
+    }
+
+    .product-button {
+      width: 130px;
+      height: 50px;
+      font-size: 16px;
+    }
+  }
+
+  &:hover {
+    .product-image {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@import "../../../styles/theme";

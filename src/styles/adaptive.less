@@ -119,13 +119,6 @@
       grid-template-columns: repeat(2, minmax(180px, 220px));
       justify-content: center;
       column-gap: 86px;
-
-      .advantage-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
     }
   }
 
@@ -139,10 +132,10 @@
     }
   }
 
-  .present-message {
+  .cart-message {
     bottom: 13px;
 
-    .present {
+    .cart {
       width: 75px;
       height: 75px;
     }
@@ -288,15 +281,6 @@
       .advantages-items {
         grid-template-columns: repeat(2, minmax(165px, 220px));
         gap: 36px 15px;
-
-        .advantage-item {
-          min-width: 165px;
-
-          .item-title {
-            font-size: 18px;
-            margin-bottom: 20px;
-          }
-        }
       }
     }
 
@@ -441,15 +425,19 @@
     }
   }
 
-  .present-message {
-    .present {
+  .cart-message {
+    .cart {
       width: 65px;
       height: 65px;
       padding: 10px;
       box-sizing: border-box;
 
+      .count {
+        top: -5px;
+      }
+
       img {
-        max-width: 100%;
+        max-width: 80%;
       }
     }
   }
@@ -461,16 +449,12 @@
       .advantages-items {
         grid-template-columns: repeat(2, minmax(0, 220px));
         gap: 36px 15px;
-
-        .advantage-item {
-          min-width: unset;
-        }
       }
     }
   }
 
-  .present-message {
-    .present {
+  .cart-message {
+    .cart {
       width: 55px;
       height: 55px;
     }

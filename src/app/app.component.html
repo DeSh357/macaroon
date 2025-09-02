@@ -37,7 +37,7 @@
           </li>
         </ul>
       </nav>
-      <div class="phone">{{ phone }}</div>
+      <div class="phone">{{ phone | phoneNumber}}</div>
     </div>
   </header>
   <div class="main-info">
@@ -48,7 +48,7 @@
         <div class="description">Побалуйте себя и своих близких самыми вкусными и ароматными домашними
           пироженками Macaroon!
         </div>
-        <button class="button main-button">Выбрать макарун</button>
+        <button class="button main-button" btn-background backgroundBtnDefaultBgColor="pink" backgroundBtnFocusBgColor="blue">Выбрать макарун</button>
       </div>
       <div class="main-info-image">
         <img src="assets/images/macaroons.png" alt="Macaroons">
@@ -76,14 +76,7 @@
       </div>
     </div>
     <div class="advantages-items">
-      <div class="advantage-item" *ngFor="let advantage of advantages; let i = index">
-        <div class="item-number">
-          <span>{{ i + 1 }}</span>
-        </div>
-        <div class="item-title">{{advantage.title}}</div>
-        <div class="item-text">{{advantage.text}}
-        </div>
-      </div>
+      <advantage *ngFor="let advantage of advantages; let i = index;" [advantage]="advantage" [advantageNumber]="i"></advantage>
     </div>
   </div>
 </section>
@@ -92,19 +85,7 @@
   <div class="container">
     <h2>Выберите свой макарун</h2>
     <div class="products-items">
-      <div class="product-item" *ngFor="let product of products">
-        <div class="product-image">
-          <img src="./assets/images/{{product.image}}" alt="Macaroon">
-        </div>
-        <div class="product-title">{{ product.title }}</div>
-        <div class="product-actions">
-          <div class="product-info">
-            <div class="product-count">{{ product.count }} шт.</div>
-            <div class="product-price">{{ product.price }} руб.</div>
-          </div>
-          <button class="button product-button" (click)="addToCart(product.title, orderElement)">Заказать</button>
-        </div>
-      </div>
+      <product *ngFor="let product of products" [product]="product" (addToCartEvent)="addToCart($event)"></product>
     </div>
   </div>
 </section>
@@ -139,7 +120,7 @@
           <div class="invalid-feedback" id="feedback3">Необходимо ввести телефон</div>
         </div>
 
-        <button class="button order-button">Оформить заказ</button>
+        <button class="button order-button" btn-background backgroundBtnDefaultBgColor="white" backgroundBtnFocusBgColor="red">Оформить заказ</button>
       </div>
     </div>
     <div class="ajax-success">
@@ -166,19 +147,21 @@
         <div>Мы в Instagram</div>
       </a>
     </div>
-    <div class="phone">{{phone}}</div>
+    <div class="phone">{{ phone | phoneNumber}}</div>
   </div>
 </footer>
 
 
-<div class="present-message" *ngIf="showPresent">
+<div class="cart-message" *ngIf="showPresent">
   <div class="message">
-    <div class="message-text">Оформите заказ</div>
-    <div class="message-text">и получите подарок!</div>
+    <div class="message-text">{{ cartService.price | currencyPipe}}</div>
     <div class="figure"></div>
   </div>
-  <div class="present">
-    <img src="assets/images/present.png" alt="Present">
+  <div class="cart">
+    <img src="assets/images/cart.png" alt="Present">
+    <div class="count">
+      <div class="count-number">{{ cartService.count}}</div>
+    </div>
   </div>
 </div>
 
